@@ -10,7 +10,7 @@ exports.addContent = (req,res,next)=>{ //multer and checktoken here act as a mid
     const c1 = new Content({
         title: req.body.title,
         message: req.body.message,
-        imgpath: url+'/images/'+req.file.filename,
+        imgpath: url+'/back/images/'+req.file.filename,
         author:req.userData.id
     })
     console.log('incoming req',c1)
