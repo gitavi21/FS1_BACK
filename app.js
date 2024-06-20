@@ -22,7 +22,7 @@ app.use((req,res,next)=>{
     next()
 }
 )
-app.use('/images',express.static(path.join("back/images")))
+app.use('/images',express.static(path.join("images")))
 app.use((req,res,next)=>{
     console.log('first middleware',req.body)
     next()
