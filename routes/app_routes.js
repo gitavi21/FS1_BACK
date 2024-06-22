@@ -16,9 +16,10 @@ const MIME_TYPE = {
 const storage = multer.diskStorage({            //multer here act as a middleware function
     destination: (req,file,cbfunction)=>{
         const isvalid = MIME_TYPE[file.mimetype]
-        let error;
+        console.log(isvalid,'isvalid')
+        let error='';
         if(isvalid){
-            error = null
+            error = ''
         }
         else{
             error = new Error('Invalid MIME Type')
@@ -28,7 +29,7 @@ const storage = multer.diskStorage({            //multer here act as a middlewar
     filename: (req,file,cbfunction)=>{
         const name = file.originalname.toLowerCase().split(' ').join('-')
         const extension = MIME_TYPE[file.mimetype]
-        cbfunction(error,name+'-'+Date.now()+'-'+extension)
+        cbfunction(null,name+'-'+Date.now()+'-'+extension)
 
     }
 })
